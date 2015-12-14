@@ -2,9 +2,18 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title AraShop
+    %title ARA SHOP
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    %h3
+      = link_to "ARA SHOP", root_path
+      = link_to "SHOP STYLES", products_path
+      = link_to "CART", root_path
+      = link_to "LOGIN", root_path
+      = link_to "NEW PRODUCT", new_product_path
+
+    - flash.each do |message_type, message|
+      %div{:class => "alert alert-#{message_type}"}= message
     = yield

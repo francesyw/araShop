@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
 
+  resources :products
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

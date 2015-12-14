@@ -1,0 +1,17 @@
+%h3
+  Product #{@product.id}: #{@product.name}
+
+Type: #{@product.type}
+%br
+Price: #{@product.price}
+/ admin only:
+/ %br
+/ Discount: #{@product.discount}
+/ %br
+/ Quantity: #{@product.quantity}
+%br
+Description: #{@product.description}
+
+/ admin only:
+%br
+#{link_to "edit", edit_product_path(@product)} 

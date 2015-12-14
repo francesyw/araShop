@@ -1,0 +1,9 @@
+%h3 All Products
+
+- @products.each do |x|
+  %b
+    = link_to x.name, product_path(x)
+    $#{x.price}
+    / admin only
+    #{link_to "edit", edit_product_path(x)} 
+  %br

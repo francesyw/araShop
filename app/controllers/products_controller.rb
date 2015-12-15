@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+    before_action :user_signed_in?, only: [:new, :create, :edit, :update] 
+
     def new
         @product = Product.new
     end

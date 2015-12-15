@@ -3,15 +3,17 @@
 
 Type: #{@product.type}
 %br
-Price: #{@product.price}
-/ admin only:
-/ %br
-/ Discount: #{@product.discount}
-/ %br
-/ Quantity: #{@product.quantity}
+Original Price: $#{@product.price}
+%br
+Sale: $#{@product.price * @product.discount}
+- if current_user
+  %br
+  Discount: #{@product.discount}
+  %br
+  Quantity: #{@product.quantity}
 %br
 Description: #{@product.description}
 
-/ admin only:
-%br
-#{link_to "edit", edit_product_path(@product)} 
+- if current_user
+  %br
+  #{link_to "edit", edit_product_path(@product)} 

@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-    before_action :user_signed_in?, only: [:new, :create, :edit, :update] 
+    before_filter :authenticate_user!, only: [:new, :create, :edit, :update] 
 
     def new
         @product = Product.new
@@ -41,6 +41,6 @@ class ProductsController < ApplicationController
 
     private
         def permit_products
-            params.require(:product).permit(:name,:price,:description,:type,:quantity,:discount)
+            params.require(:product).permit(:name,:price,:description,:type,:quantity,:discount,:image)
         end 
 end

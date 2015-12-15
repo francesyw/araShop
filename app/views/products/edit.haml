@@ -19,6 +19,11 @@ Product #{@product.id}: #{@product.name}
   %br
   = f.label :description, 'Description'
   = f.text_area :description, size: '40x10'
+  %br
+  = image_tag(@product.image.url(:original))
+  %br
+  = f.label :image, 'Upload Image: '
+  = f.file_field :image
 
   %br
   %br

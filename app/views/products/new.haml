@@ -4,9 +4,9 @@
   = f.text_field :name 
   %br
   = f.label :type, 'Type'
-  = f.text_field :type, placeholder: 'Tops, Jeans, Shoes'
+  = f.text_field :type, placeholder: 'Tops, Jeans, Shoes...'
   %br
-  = f.label :price, 'Price'
+  = f.label :price, 'Original Price'
   = f.text_field :price,  value: (number_with_precision(f.object.price, precision: 2) || 0)
   %br
   = f.label :discount, 'Discount'

@@ -1,4 +1,25 @@
 %h3 Edit Product
 Product #{@product.id}: #{@product.name}
 
-/ TODO: add stuff
+= form_for @product do |f|
+  = f.label :name, 'Name'
+  = f.text_field :name 
+  %br
+  = f.label :type, 'Type'
+  = f.text_field :type, placeholder: 'Tops, Jeans, Shoes...'
+  %br
+  = f.label :price, 'Original Price'
+  = f.text_field :price,  value: (number_with_precision(f.object.price, precision: 2) || 0)
+  %br
+  = f.label :discount, 'Discount'
+  = f.text_field :discount,  value: (1 || number_with_precision(f.object.price, precision: 2))
+  %br
+  = f.label :quantity, 'Quantity'
+  = f.number_field :quantity
+  %br
+  = f.label :description, 'Description'
+  = f.text_area :description, size: '40x10'
+
+  %br
+  %br
+  = f.submit class: 'btn btn-danger'

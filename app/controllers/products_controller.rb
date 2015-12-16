@@ -39,6 +39,30 @@ class ProductsController < ApplicationController
         end
     end
 
+    def card
+        @product = Product.find(params[:id])
+    end
+
+    def purchase        
+        @product = Product.find(params[:id])       
+        token = params[:stripeToken]
+
+        # Create the charge on Stripe's servers - this will charge the user's card
+        begin
+          charge = Stripe::Charge.create(
+            :amount => (@product.price * 100).to_i, # amount in cents, TODO: convert the price to cents
+            :currency => "usd",
+            :source => token,
+            :description => @product.name
+          )
+        rescue Stripe::CardError => e
+          flash[:danger] = "Checkout Error"
+          redirect_to products_path
+        end
+        flash[:success] = "Purchased"
+        redirect_to root_url
+    end
+
     private
         def permit_products
             params.require(:product).permit(:name,:price,:description,:type,:quantity,:discount,:image)

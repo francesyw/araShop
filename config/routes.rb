@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
   resources :products
 
+  get  '/purchase/:id' => 'products#card', as: "card"
+  post '/purchase/:id' => 'products#purchase'
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

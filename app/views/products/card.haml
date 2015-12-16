@@ -1,0 +1,36 @@
+%h3 CART
+
+%p
+  You are buying #{@product.name}
+
+= form_tag "", id: "payment-form"
+%span.payment-errors
+%div
+  = label_tag :card_number
+  = text_field_tag :number,"4242424242424242", "data-stripe" => "number"
+%div
+  = label_tag :cvc
+  = text_field_tag :number,"123", "data-stripe" => "cvc"
+expiration month and year
+%div
+  = label_tag :month
+  = text_field_tag :number,"10", "data-stripe" => "exp-month"
+%div
+  = label_tag :year
+  = text_field_tag :number,"2020", "data-stripe" => "exp-year"
+%button{:type => "submit"} Submit Payment
+
+:javascript
+  jQuery(function($) {
+    $('#payment-form').submit(function(event) {
+      var $form = $(this);
+
+      // Disable the submit button to prevent repeated clicks
+      $form.find('button').prop('disabled', true);
+
+      Stripe.card.createToken($form, stripeResponseHandler);
+
+      // Prevent the form from submitting with the default action
+      return false;
+    });
+  });

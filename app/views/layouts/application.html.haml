@@ -14,7 +14,7 @@
     %h3
       = link_to "ARA SHOP", root_path
       = link_to "SHOP STYLES", products_path
-      = link_to "CART", root_path
+      = link_to "CART", cart_path
       
       - if current_user
         = link_to "LOGOUT", destroy_user_session_path, method: 'delete'

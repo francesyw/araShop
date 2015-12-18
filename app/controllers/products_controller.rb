@@ -21,6 +21,7 @@ class ProductsController < ApplicationController
     end
 
     def index
+        # reset_session
         @products = Product.all
     end
 
@@ -37,6 +38,32 @@ class ProductsController < ApplicationController
             flash[:danger]  = "Error" 
             redirect_to root_url
         end
+    end
+
+    def addtocart        
+        @product = Product.find(params[:id])
+        if session[:cart] == nil
+            session[:cart] = {}
+        end
+        binding.pry
+        if session[:cart][@product.id] == nil 
+            session[:cart][@product.id] = 1
+            # binding.pry
+        else
+            session[:cart][@product.id] += 1
+        end
+        # (session[:cart] ||= []) << @product.id
+        flash[:success] = "Successfully added to your cart."
+        redirect_to product_path(@product)
+    end
+
+    def cart
+        # binding.pry
+        if session[:cart] == nil
+            session[:cart] = {}
+        end
+        @items = Product.find(session[:cart].keys)
+        # binding.pry
     end
 
     def card

@@ -45,12 +45,12 @@ class ProductsController < ApplicationController
         if session[:cart] == nil
             session[:cart] = {}
         end
-        binding.pry
-        if session[:cart][@product.id] == nil 
-            session[:cart][@product.id] = 1
+        # binding.pry
+        if session[:cart][@product.id.to_s] == nil 
+            session[:cart][@product.id.to_s] = 1
             # binding.pry
         else
-            session[:cart][@product.id] += 1
+            session[:cart][@product.id.to_s] += 1
         end
         # (session[:cart] ||= []) << @product.id
         flash[:success] = "Successfully added to your cart."
@@ -63,11 +63,13 @@ class ProductsController < ApplicationController
             session[:cart] = {}
         end
         @items = Product.find(session[:cart].keys)
+        @quantity = 0
+        @subtotal = 0
         # binding.pry
     end
 
     def card
-        @product = Product.find(params[:id])
+        # @product = Product.find(session[:cart])
     end
 
     def purchase        

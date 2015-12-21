@@ -1,7 +1,26 @@
 %h3 SHOPPING CART
-
+- @total = 0
 - @items.each do |x|
+
   %b 
     = x.name
   %br
   
+  - @quantity = session[:cart][x.id.to_s]
+  Quantity: #{@quantity}
+  %br
+  
+  Price: #{x.price}
+  %br
+  
+  - @subtotal = @quantity * x.price
+  %b
+    Subtotal: #{@subtotal}
+  
+  %br
+  %br
+  - @total =  @subtotal + @total
+%h3
+  TOTAL: #{@total}  
+
+#{link_to "CHECK OUT", card_path(@product)} 

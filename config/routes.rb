@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   resources :products
 
-  get  '/purchase/:id' => 'products#card', as: "card"
-  post '/purchase/:id' => 'products#purchase'
+  get  '/purchase' => 'products#card', as: "card"
+  post '/purchase' => 'products#purchase'
   get 'addtocart/:id' => 'products#addtocart', as: "addtocart"
   get '/cart' => 'products#cart', as: "cart"
 

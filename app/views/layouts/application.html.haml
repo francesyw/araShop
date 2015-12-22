@@ -11,17 +11,41 @@
       Stripe.setPublishableKey('pk_test_pmeh2VTO8DfPVCKgPCdgrHc3');
     
   %body
-    %h3
-      = link_to "ARA SHOP", root_path
-      = link_to "SHOP STYLES", products_path
-      = link_to "CART", cart_path
-      
-      - if current_user
-        = link_to "LOGOUT", destroy_user_session_path, method: 'delete'
-        = link_to "NEW PRODUCT", new_product_path
-      - else
-        = link_to "LOGIN", new_user_session_path
+    #body
+      .container
+        #logo
+        .menu
+          %h3
+            = link_to "ARA SHOP", root_path
+            = link_to "SHOP STYLES", products_path
+            = link_to "CART", cart_path
+            
+            - if current_user
+              = link_to "LOGOUT", destroy_user_session_path, method: 'delete'
+              = link_to "NEW PRODUCT", new_product_path
+            - else
+              = link_to "LOGIN", new_user_session_path
 
-    - flash.each do |message_type, message|
-      %div{:class => "alert alert-#{message_type}"}= message
-    = yield
+      - flash.each do |message_type, message|
+        %div{:class => "alert alert-#{message_type}"}= message
+
+      / go to home page
+      / .container
+      /   #home-cover
+      /     #home-cover-text
+
+
+      = yield
+
+      .container
+        .home-info
+        .home-info
+        .home-info
+
+      .container
+
+      #footer
+        #footer-menu
+        #footer-logo
+
+

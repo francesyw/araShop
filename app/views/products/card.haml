@@ -1,6 +1,9 @@
 %h3 CART
 
 %h1 Check Out
+%p
+  %b
+    TOTAL PRICE: $#{@total_price}
 
 = form_tag "", id: "payment-form"
 %span.payment-errors

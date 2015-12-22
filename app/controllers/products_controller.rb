@@ -58,42 +58,62 @@ class ProductsController < ApplicationController
     end
 
     def cart
-        # binding.pry
+        # binding.pry        
         if session[:cart] == nil
             session[:cart] = {}
         end
         @items = Product.find(session[:cart].keys)
         @quantity = 0
         @subtotal = 0
+        @total_price = total_price
         # binding.pry
     end
 
     def card
+        # binding.pry
         # @product = Product.find(session[:cart])
+        @total_price = total_price
     end
 
     def purchase        
-        @product = Product.find(params[:id])       
+        # @product = Product.find(params[:id]) 
+        @total_price = total_price 
         token = params[:stripeToken]
 
         # Create the charge on Stripe's servers - this will charge the user's card
         begin
           charge = Stripe::Charge.create(
-            :amount => (@product.price * 100).to_i, # amount in cents, TODO: convert the price to cents
+            :amount => (@total_price * 100).to_i, # amount in cents, TODO: convert the price to cents
             :currency => "usd",
             :source => token,
-            :description => @product.name
+            :description => "total"
           )
         rescue Stripe::CardError => e
           flash[:danger] = "Checkout Error"
-          redirect_to products_path
+          redirect_to root_url
         end
         flash[:success] = "Purchased"
         redirect_to root_url
     end
 
+    def reset
+        session[:cart] = {}
+        redirect_to cart_path
+    end
+
     private
+
         def permit_products
             params.require(:product).permit(:name,:price,:description,:type,:quantity,:discount,:image)
         end 
+
+        def total_price
+            @total = 0
+            @items = Product.find(session[:cart].keys)
+            @items.each do |x|
+                @sub = x.price * session[:cart][x.id.to_s]
+                @total += @sub
+            end
+            return @total
+        end
 end

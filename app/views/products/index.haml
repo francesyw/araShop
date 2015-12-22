@@ -1,6 +1,7 @@
 %h3 All Products
 
 - @products.each do |x|
+  = image_tag(x.image.url(:thumb))
   %b
     = link_to x.name, product_path(x)
     $#{x.price}

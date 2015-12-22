@@ -7,8 +7,9 @@ Rails.application.routes.draw do
 
   get  '/purchase' => 'products#card', as: "card"
   post '/purchase' => 'products#purchase'
-  get 'addtocart/:id' => 'products#addtocart', as: "addtocart"
+  get '/addtocart/:id' => 'products#addtocart', as: "addtocart"
   get '/cart' => 'products#cart', as: "cart"
+  get '/reset' => 'products#reset', as: "reset"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

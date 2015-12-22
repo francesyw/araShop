@@ -1,5 +1,5 @@
 %h3 SHOPPING CART
-- @total = 0
+
 - @items.each do |x|
 
   %b 
@@ -19,8 +19,12 @@
   
   %br
   %br
-  - @total =  @subtotal + @total
-%h3
-  TOTAL: #{@total}  
 
-#{link_to "CHECK OUT", card_path(@product)} 
+%h3
+  TOTAL: $#{@total_price}  
+
+- if @total_price > 0 
+  #{link_to "CLEAR CART", reset_path} 
+  %br
+  %br
+  #{link_to "CHECK OUT", card_path} 

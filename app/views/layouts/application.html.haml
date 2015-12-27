@@ -4,45 +4,46 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title ARA SHOP
     %script{:src => "https://js.stripe.com/v2/", :type => "text/javascript"}
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'application', 'https://fonts.googleapis.com/css?family=Roboto+Slab:700', 'https://fonts.googleapis.com/css?family=Karla:700,400', 'https://fonts.googleapis.com/css?family=Vollkorn:400,400italic', media: 'all', 'data-turbolinks-track' => true
+
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     :javascript
       Stripe.setPublishableKey('pk_test_pmeh2VTO8DfPVCKgPCdgrHc3');
     
   %body
-    #body
-      .container
+    #frame
+      .nav
         #logo
-        .menu
-          %h3
-            = link_to "ARA SHOP", root_path
-            = link_to "SHOP STYLES", products_path
-            = link_to "CART", cart_path
-            
-            - if current_user
-              = link_to "LOGOUT", destroy_user_session_path, method: 'delete'
-              = link_to "NEW PRODUCT", new_product_path
-            - else
-              = link_to "LOGIN", new_user_session_path
+          = link_to "ARA SHOP", root_path
+        %ul.menu                    
+          = link_to "SHOP STYLES", products_path
+          = link_to "CART", cart_path
+          
+          - if current_user
+            = link_to "LOGOUT", destroy_user_session_path, method: 'delete'
+            = link_to "NEW PRODUCT", new_product_path
+          - else
+            = link_to "LOGIN", new_user_session_path
 
-      - flash.each do |message_type, message|
-        %div{:class => "alert alert-#{message_type}"}= message
+      .nav
+        - flash.each do |message_type, message|
+          %div{:class => "alert alert-#{message_type}"}= message
 
-      / go to home page
-      / .container
-      /   #home-cover
-      /     #home-cover-text
+        / go to home page
+        / .container
+        /   #home-cover
+        /     #home-cover-text
 
 
-      = yield
+        = yield
 
-      .container
+      .nav
         .home-info
         .home-info
         .home-info
 
-      .container
+      .nav
 
       #footer
         #footer-menu

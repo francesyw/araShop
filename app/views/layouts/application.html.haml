@@ -13,18 +13,23 @@
     
   %body
     #frame
-      .nav
+      #header
         #logo
           = link_to "ARA SHOP", root_path
-        %ul.menu                    
-          = link_to "SHOP STYLES", products_path
-          = link_to "CART", cart_path
+        %ul.menu 
+          %li.btn                   
+            = link_to "SHOP STYLES", products_path
+          %li.btn
+            = link_to "CART", cart_path
           
           - if current_user
-            = link_to "LOGOUT", destroy_user_session_path, method: 'delete'
-            = link_to "NEW PRODUCT", new_product_path
+            %li.btn
+              = link_to "LOGOUT", destroy_user_session_path, method: 'delete'
+            %li.btn
+              = link_to "NEW PRODUCT", new_product_path
           - else
-            = link_to "LOGIN", new_user_session_path
+            %li.btn
+              = link_to "LOGIN", new_user_session_path
 
       .nav
         - flash.each do |message_type, message|

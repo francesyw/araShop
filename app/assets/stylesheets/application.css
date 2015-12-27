@@ -6,9 +6,7 @@
 #frame {
     max-width: 1200px;
     height: 100%;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
 
 a, a:visited {
@@ -26,9 +24,14 @@ a:hover {
     display: block;
 }
 
+#header {
+    height: 90px;
+}
+
 #logo {    
     font-family: 'Roboto Slab', serif;
-    letter-spacing: 5px;
+    letter-spacing: 4px;
+    font-size: 10pt;
     font-weight: bold;    
     float: left;
     position: relative;
@@ -48,6 +51,20 @@ ul.menu {
     transform: translateY(-50%);   
     /*font-family: 'Vollkorn', serif;
     font-style: italic;*/
+}
+
+li {
+    list-style: none;
+    display: inline-block;
+}
+
+li.btn {
+    padding: 0 20px 0 20px;
+}
+
+li.btn:last-child {
+    padding-right: 0;
+    padding-left: 20px;
 }
 
 /*

@@ -37,10 +37,31 @@
 
         = yield
 
-      .nav
-        .home-info
-        .home-info
-        .home-info
+      %ul.even-wrapper
+        %li.home-info
+          .info-wrapper
+            = image_tag("home/b1.png", :class => "info-img")
+            .info-text-wrapper
+              .info-title
+                FREE SHIPPING
+              .textin-link.text-grey
+                Sed eget ipsum sed ipsum tempus fringilla nec ut est
+        %li.home-info
+          .info-wrapper
+            = image_tag("home/b2.png", :class => "info-img")
+            .info-text-wrapper
+              .info-title
+                FREE RETURN
+              .textin-link.text-grey
+                Sed eget ipsum sed ipsum tempus fringilla nec ut est
+        %li.home-info
+          .info-wrapper
+            = image_tag("home/b3.png", :class => "info-img")
+            .info-text-wrapper
+              .info-title
+                ORDER TRACKING
+              .textin-link.text-grey
+                Sed eget ipsum sed ipsum tempus fringilla nec ut est
 
       .nav
 

@@ -63,12 +63,12 @@
 .textin-link {
     font-family: 'Vollkorn', serif;
     font-style: italic;
-    font-size: 9pt;
+    font-size: 8pt;
     letter-spacing: 0.5px;
 }
 
 .home-products {
-    margin: 4% auto;
+    margin: 3.5% auto;
     width: 65%;
 }
 
@@ -80,9 +80,7 @@
     color: grey;
 }
     
-ul.home-products-thum {
-    display: flex;
-    justify-content: space-between;
+.home-products-thum {
     margin-top: 2%;
 }
 
@@ -109,15 +107,15 @@ li.product-thum {
     font-size: 8pt;
 }
 
-ul.home-corp {
-    display: flex;
-    justify-content: space-between;
+.home-corp {
     margin: 4% auto;
 }
 
 li.corp-logo {
     width: 6%;
 }
+
+
 
 
 

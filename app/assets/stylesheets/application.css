@@ -7,9 +7,10 @@
 }
 
 #frame {
-    max-width: 1200px;
+    max-width: 1280px;
     height: 100%;
     margin: 0 auto;
+    padding: 0 1%;
 }
 
 a, a:visited {
@@ -32,14 +33,16 @@ a:hover {
 }
 
 #logo {    
-    font-family: 'Roboto Slab', serif;
-    letter-spacing: 4px;
-    font-size: 10pt;
-    /*font-weight: bold;    */
     float: left;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.title {
+    font-family: 'Roboto Slab', serif;
+    letter-spacing: 4px;
+    font-size: 10pt;
 }
 
 ul.menu {    

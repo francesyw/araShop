@@ -1,7 +1,7 @@
 .home-cover {
     position: relative;
     max-height: 630px;
-    background-color: #F6F6F6;
+    /*background-color: #F6F6F6;*/
     overflow: hidden;
 }
 
@@ -15,16 +15,17 @@
     background-color: #F6F6F6;
 }
 
+.cover-solid {
+    height:100%;
+    width: 100%;
+}
+
 .home-solid {
     position: absolute;
     width: 50%;
     height: 100%;
     z-index: 990;
     right: 0;
-}
-
-.cover-solid {
-    height:100%;
 }
 
 .home-textout {
@@ -38,8 +39,8 @@
 }
 
 .home-textin {
-    margin: 50px;
-    line-height: 21px;
+    margin: 8%;
+    line-height: 23px;
 }
 
 #textin-season {
@@ -60,13 +61,56 @@
     font-size: 8pt;
 }
 
-#textin-link {
+.textin-link {
     font-family: 'Vollkorn', serif;
     font-style: italic;
     /*text-decoration: underline;*/
     font-size: 9pt;
+    letter-spacing: 0.5px;
 }
 
+.home-products {
+    margin: 4% auto;
+    width: 65%;
+}
+
+.text-wrapper {
+    line-height: 23px;
+}
+
+.text-grey {
+    color: grey;
+}
+    
+ul.home-products-thum {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2%;
+}
+
+li.product-thum {
+    /*background-color: #F6F6F6;*/
+    width: 23%;
+    text-align: center;
+}
+
+.thum-img {
+    width: 100%;
+    height: auto;
+    margin: 6% 0;
+}
+
+.product-thum-name {
+    font-family: 'Roboto Slab', serif;
+    font-size: 8pt;
+    letter-spacing: 0.5px;
+}
+
+.product-thum-price {
+    font-family: 'Vollkorn', serif;
+    color: grey;
+    font-size: 8pt;
+}
 
 
 

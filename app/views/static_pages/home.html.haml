@@ -15,6 +15,41 @@
         %br
         condimentum sit amet justo id, ornare porta est. Nam sagittis lacinia ex et rutrum.
       %br
-      %br
-      #textin-link
+      .textin-link
         View collection 
+
+.home-products
+  .text-wrapper
+    .textin-link.text-grey
+      = link_to "See all products", products_path
+    .title
+      NEW ARRIVALS
+  %ul.home-products-thum
+    %li.product-thum
+      = image_tag("home/dude1.png", :class => "thum-img")
+      .text-wrapper
+        .product-thum-name
+          Printed Jacquard Dress
+        .product-thum-price
+          $340.00
+    %li.product-thum
+      = image_tag("home/dude2.png", :class => "thum-img")
+      .text-wrapper
+        .product-thum-name
+          Printed Jacquard Dress
+        .product-thum-price
+          $340.00
+    %li.product-thum
+      = image_tag("home/dude3.png", :class => "thum-img")
+      .text-wrapper
+        .product-thum-name
+          Printed Jacquard Dress
+        .product-thum-price
+          $340.00
+    %li.product-thum
+      = image_tag("home/dude4.png", :class => "thum-img")
+      .text-wrapper
+        .product-thum-name
+          Printed Jacquard Dress
+        .product-thum-price
+          $340.00

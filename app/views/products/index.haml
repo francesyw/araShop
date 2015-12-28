@@ -1,4 +1,28 @@
-%h3 All Products
+
+/ .products-index-cover
+.index-cover
+  = image_tag("products-index/products-index-cover.jpg", :class => "cover-img")
+  .cover-text
+    .cover-text-link 
+      Home&nbsp&nbsp&nbsp&nbsp&nbsp/&nbsp&nbsp&nbsp&nbsp&nbspShop Style
+    .textin-sub
+      SHOP STYLE
+
+.products-index-nav
+  %ul.products-type.menu
+    = link_to products_path, :class => "black-link" do
+      %li.btn ALL PRODUCTS
+    = link_to products_path, :class => "black-link" do
+      %li.btn TOPS
+    = link_to products_path, :class => "black-link" do
+      %li.btn JEANS
+    = link_to products_path, :class => "black-link" do
+      %li.btn SHOES
+    = link_to products_path, :class => "black-link" do
+      %li.btn ACCESSORIES
+  .products-index
+
+
 
 - @products.each do |x|
   = image_tag(x.image.url(:thumb))

@@ -1,0 +1,40 @@
+.index-cover {
+    position: relative;
+    max-height: 330px;
+    overflow: hidden;
+}
+
+.cover-text {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-52%);
+    z-index: 999;
+    color: white;
+    text-align: center;
+    line-height: 42px;
+}
+
+.cover-text-link {
+    font-family: 'Karla', sans-serif;  
+    font-size: 8pt;
+}
+
+.products-index-nav {
+    width: 100%;
+    /*height: 100px;
+    background-color: tomato;*/
+    margin-top: 4%;
+    margin-bottom:5%;
+}
+
+.products-type {
+    text-align: center;
+    font-size: 8pt !important;
+    color: black !important; 
+    margin: 3% auto;
+}
+
+a.black-link:hover {
+    color: grey;
+}

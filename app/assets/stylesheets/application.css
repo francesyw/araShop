@@ -31,8 +31,11 @@ a:hover {
     height: 80px;
 }
 
-#logo {    
+.left {    
     float: left;
+}
+
+.hori-center {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
@@ -45,15 +48,15 @@ a:hover {
 }
 
 ul.menu {    
-    float: right;
     font-family: 'Karla', sans-serif;  
     font-weight: bold;
     color: #9E9E9E;
     font-size: 7pt;
-    letter-spacing: 0.5px; 
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);      
+    letter-spacing: 0.5px;      
+}
+
+.right {
+    float: right;
 }
 
 li {
@@ -105,3 +108,39 @@ li.home-info {
     letter-spacing: 4px;
     font-size: 9pt;
 }
+
+#map-img {
+    margin: 2% auto;
+    width: 100%;
+}
+
+#footer {
+    height: 80px;
+    background-color: #272727;
+    margin-bottom: 2%;
+}
+
+#footer-menu {
+    margin-left: 1%;
+}
+
+#footer-ico {
+    color: #9E9E9E;
+    font-size: 8pt;
+    margin-right: 1%;
+}
+
+a.footer-link:hover {
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+

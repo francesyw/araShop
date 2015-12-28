@@ -4,7 +4,7 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title ARA SHOP
     %script{:src => "https://js.stripe.com/v2/", :type => "text/javascript"}
-    = stylesheet_link_tag    'application', 'https://fonts.googleapis.com/css?family=Roboto+Slab:700', 'https://fonts.googleapis.com/css?family=Karla:700,400', 'https://fonts.googleapis.com/css?family=Vollkorn:400,400italic', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'application', 'https://fonts.googleapis.com/css?family=Roboto+Slab:700', 'https://fonts.googleapis.com/css?family=Karla:700,400', 'https://fonts.googleapis.com/css?family=Vollkorn:400,400italic', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', media: 'all', 'data-turbolinks-track' => true
 
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -14,22 +14,22 @@
   %body
     #frame
       #header
-        #logo.title
-          = link_to "ARA SHOP", root_path
-        %ul.menu 
-          %li.btn                   
-            = link_to "SHOP STYLES", products_path
-          %li.btn
-            = link_to "CART", cart_path
-          
+        .left.hori-center.title
+          = link_to "ARA SHOP", root_path 
+        %ul.menu.hori-center.right                             
+          = link_to products_path do
+            %li.btn SHOP STYLES
+          = link_to cart_path do
+            %li.btn CART
+
           - if current_user
-            %li.btn
-              = link_to "LOGOUT", destroy_user_session_path, method: 'delete'
-            %li.btn
-              = link_to "NEW PRODUCT", new_product_path
+            = link_to destroy_user_session_path, method: 'delete' do
+              %li.btn LOGOUT
+            = link_to new_product_path do
+              %li.btn NEW PRODUCT
           - else
-            %li.btn
-              = link_to "LOGIN", new_user_session_path
+            = link_to new_user_session_path do
+              %li.btn LOGIN
 
       .nav
         - flash.each do |message_type, message|
@@ -61,12 +61,35 @@
               .info-title
                 ORDER TRACKING
               .textin-link.text-grey
-                Sed eget ipsum sed ipsum tempus fringilla nec ut est
-
-      .nav
+                Sed eget ipsum sed ipsum tempus fringilla nec ut est      
+      
+      = image_tag("home/map.png", :id => "map-img")
 
       #footer
-        #footer-menu
-        #footer-logo
+        %ul.menu.left.hori-center#footer-menu
+          = link_to root_url, :class => "footer-link" do
+            %li.btn ABOUT US
+          = link_to root_url, :class => "footer-link" do 
+            %li.btn VISIT SHOP
+          = link_to root_url, :class => "footer-link" do
+            %li.btn FAQS
+          = link_to root_url, :class => "footer-link" do
+            %li.btn ORDER TRACKING
+          = link_to root_url, :class => "footer-link" do
+            %li.btn @BY ALITSTUDIO
+
+        %ul.right.hori-center#footer-ico          
+          = link_to root_url, :class => "footer-link" do
+            %li.btn
+              %i.fa.fa-facebook
+          = link_to root_url, :class => "footer-link" do
+            %li.btn
+              %i.fa.fa-twitter
+          = link_to root_url, :class => "footer-link" do
+            %li.btn
+              %i.fa.fa-instagram
+          = link_to root_url, :class => "footer-link" do
+            %li.btn
+              %i.fa.fa-linkedin
 
 

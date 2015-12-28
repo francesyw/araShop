@@ -20,15 +20,13 @@
       %li.btn SHOES
     = link_to products_path, :class => "black-link" do
       %li.btn ACCESSORIES
+
   .products-index
-
-
-
-- @products.each do |x|
-  = image_tag(x.image.url(:thumb))
-  %b
-    = link_to x.name, product_path(x)
-    $#{x.price}
-    - if current_user
-      #{link_to "edit", edit_product_path(x)} 
-  %br
+    - @products.each do |x|
+      .index-thum
+        = link_to image_tag(x.image.url(:medium), :class => "thum-img index-thum-img"), product_path(x)
+        .text-wrapper
+          = link_to x.name, product_path(x), :class => "product-thum-name black-link"
+          .product-thum-price $#{x.price}
+          - if current_user
+            #{link_to "edit", edit_product_path(x)} 

@@ -32,9 +32,28 @@
     text-align: center;
     font-size: 8pt !important;
     color: black !important; 
-    margin: 3% auto;
 }
 
 a.black-link:hover {
     color: grey;
+}
+
+.products-index {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.index-thum {
+    text-align: center;
+    width: 24%;
+}
+
+.img-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.index-thum-img {
+    margin: 9% 0 2% 0 !important;
 }

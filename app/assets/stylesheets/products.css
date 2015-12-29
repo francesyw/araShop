@@ -1,3 +1,62 @@
+/* show */
+
+.show-cover {
+    position: relative;
+    max-height: 630px;
+    overflow: hidden;
+    background-color: #F6F6F6;
+}
+
+.show-img {
+    position: relative;
+    zoom: 2;
+    max-width: 50%;
+    max-height: 100%;
+    height: auto;
+    float: left;
+}
+
+.show-cover-info-wrapper {
+    height: 85%;
+    margin-right: 30%;
+    margin-left: 8%;
+}
+
+.ico-wrapper {
+    height: 43%;
+    background-color: white;
+    margin-bottom: 25%;
+    color: grey;
+    text-align: center;
+    font-size: 8pt;
+    box-shadow: 1px 1px #9E9E9E;    
+}
+
+.cover-ico-wrapper {
+    position: absolute;
+    top: 7.5%;
+    right: 7%;
+    width: 7%;
+    height: 16%;
+}
+
+.show-name {
+    font-family: 'Roboto Slab', serif;
+    font-size: 13pt;
+    letter-spacing: 1px;
+}
+
+.text-cross {
+    text-decoration: line-through;
+}
+
+.show-sale-price {    
+    color: #73cdd7;
+    font-size: 11pt;
+}
+
+/* index */
+
 .index-cover {
     position: relative;
     max-height: 330px;

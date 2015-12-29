@@ -1,24 +1,50 @@
-%h3
-  Product #{@product.id}: #{@product.name}
+.show-cover
+  = image_tag(@product.image.url(:original), :class => "show-img")
+  .home-solid
+    .show-cover-info-wrapper.hori-center
+      .cover-text-link.text-grey
+        #{@product.type} 
+      %br     
+      .show-name
+        #{@product.name}
+      %br
+      .product-thum-price
+        - if @product.discount == 1
+          %span.text-cross $#{@product.price}
+          &nbsp&nbsp&nbsp
+          %span.show-sale-price $#{@product.price * @product.discount}
+        - else
+          $#{@product.price}      
+      %br
+      #{@product.description}
+      %br
+      #{link_to "Add to Cart", addtocart_path(@product)} 
+      %hr/
+      SKU: 4625
+      %br
+      Need help: 718 559 8686
+      %br
+      Order by phone: 718 559 8686
+      %br
+      Free shipping and Free return
+    .cover-ico-wrapper
+      .ico-wrapper
+        .hori-center
+          %i.fa.fa-facebook
+      .ico-wrapper
+        .hori-center
+          %i.fa.fa-twitter
 
-= image_tag(@product.image.url(:original))
 
-%br
-Type: #{@product.type}
-%br
-Original Price: $#{@product.price}
-%br
-Sale: $#{@product.price * @product.discount}
+
+
 - if current_user
   %br
   Discount: #{@product.discount}
   %br
   Quantity: #{@product.quantity}
 %br
-Description: #{@product.description}
-%br
-/ #{link_to "Buy It", card_path(@product)} 
-#{link_to "Add to Cart", addtocart_path(@product)} 
+
 
 - if current_user
   %br

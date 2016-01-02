@@ -10,10 +10,10 @@
   Quantity: #{@quantity}
   %br
   
-  Price: #{x.price}
+  Price: #{(x.price * x.discount).round(2)}
   %br
   
-  - @subtotal = @quantity * x.price
+  - @subtotal = @quantity * (x.price * x.discount).round(2)
   %b
     Subtotal: #{@subtotal}
   

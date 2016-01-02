@@ -9,24 +9,42 @@
         #{@product.name}
       %br
       .product-thum-price
-        - if @product.discount == 1
+        - if @product.discount < 1
           %span.text-cross $#{@product.price}
           &nbsp&nbsp&nbsp
-          %span.show-sale-price $#{@product.price * @product.discount}
+          %span.show-sale-price.text-green-blue $#{(@product.price * @product.discount).round(2)}
         - else
           $#{@product.price}      
       %br
-      #{@product.description}
       %br
-      #{link_to "Add to Cart", addtocart_path(@product)} 
-      %hr/
-      SKU: 4625
-      %br
-      Need help: 718 559 8686
-      %br
-      Order by phone: 718 559 8686
-      %br
-      Free shipping and Free return
+      .cover-text-link.text-grey
+        #{@product.description}
+      
+      .show-info-bottom-wrapper
+        .cart-btn-wrapper 
+          = link_to addtocart_path(@product), :class => "cart-btn" do  
+            ADD TO CART 
+          / .cart-btn
+          /   #{link_to "ADD TO CART", addtocart_path(@product)} 
+        .break-line
+        .info-bottom-wrapper
+          %span.text-dark-grey     
+            SKU:  
+          %span.text-grey
+            4625
+          %br
+          %span.text-dark-grey 
+            Need help: 
+          %span.text-grey 
+            718 559 8686
+          %br
+          %span.text-dark-grey 
+            Order by phone: 
+          %span.text-grey 
+            718 559 8686
+          %br
+          %span.text-green-blue
+            Free shipping and Free reeturn
     .cover-ico-wrapper
       .ico-wrapper
         .hori-center
@@ -35,6 +53,46 @@
         .hori-center
           %i.fa.fa-twitter
 
+.nav
+  .show-main-info
+    %ul.info-menu-wrapper.text-grey
+      %li.info-menu DESCRIPTION
+      %li.info-menu ADDITIONAL INFO
+      %li.info-menu REVIEW
+    .show-info-text-wrapper.text-grey
+      .show-text-block
+        .show-info-text       
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam felis neque, imperdiet consectetur nulla a, lacinia tempus arcu. Integer quis maximus dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas erat enim, vulputate id pulvinar molestie, blandit vitae quam. Donec nisi est, tempus eget dignissim vitae.
+      .show-text-block
+        .show-info-text
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam felis neque, imperdiet consectetur nulla a, lacinia tempus arcu. Integer quis maximus dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas erat enim, vulputate id pulvinar molestie, blandit vitae quam. Donec nisi est, tempus eget dignissim vitae.
+  .show-related-wrapper
+    .text-wrapper
+      .textin-link.text-grey
+        = link_to "See all products", products_path
+      .title
+        RELATED PRODUCTS
+    %ul.even-wrapper.home-products-thum
+      %li.product-thum
+        = image_tag("home/dude1.png", :class => "thum-img")
+        .text-wrapper
+          .product-thum-name Printed Jacquard Dress
+          .product-thum-price $340.00
+      %li.product-thum
+        = image_tag("home/dude2.png", :class => "thum-img")
+        .text-wrapper
+          .product-thum-name Printed Jacquard Dress
+          .product-thum-price $340.00
+      %li.product-thum
+        = image_tag("home/dude3.png", :class => "thum-img")
+        .text-wrapper
+          .product-thum-name Printed Jacquard Dress
+          .product-thum-price $340.00
+      %li.product-thum
+        = image_tag("home/dude4.png", :class => "thum-img")
+        .text-wrapper
+          .product-thum-name Printed Jacquard Dress
+          .product-thum-price $340.00
 
 
 
@@ -43,7 +101,7 @@
   Discount: #{@product.discount}
   %br
   Quantity: #{@product.quantity}
-%br
+  %br
 
 
 - if current_user

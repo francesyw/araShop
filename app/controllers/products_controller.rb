@@ -111,7 +111,7 @@ class ProductsController < ApplicationController
             @total = 0
             @items = Product.find(session[:cart].keys)
             @items.each do |x|
-                @sub = x.price * session[:cart][x.id.to_s]
+                @sub = (x.price * x.discount).round(2) * session[:cart][x.id.to_s]
                 @total += @sub
             end
             return @total

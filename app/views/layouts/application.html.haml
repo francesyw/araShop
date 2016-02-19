@@ -32,8 +32,9 @@
               %li.btn LOGIN
 
       .nav
-        - flash.each do |message_type, message|
-          %div{:class => "alert alert-#{message_type}"}= message
+        .flash-msg
+          - flash.each do |message_type, message|
+            %div{:class => "alert alert-#{message_type}"}= message
 
         = yield
 

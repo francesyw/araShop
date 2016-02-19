@@ -1,30 +1,44 @@
-%h3 SHOPPING CART
-
-- @items.each do |x|
-
-  %b 
-    = x.name
-  %br
-  
-  - @quantity = session[:cart][x.id.to_s]
-  Quantity: #{@quantity}
-  %br
-  
-  Price: #{(x.price * x.discount).round(2)}
-  %br
-  
-  - @subtotal = @quantity * (x.price * x.discount).round(2)
-  %b
-    Subtotal: #{@subtotal}
-  
-  %br
-  %br
-
-%h3
-  TOTAL: $#{@total_price}  
+.index-cover.cart-cover
+  .cover-text
+    .cover-text-link.text-grey
+      Home&nbsp&nbsp&nbsp&nbsp&nbsp/&nbsp&nbsp&nbsp&nbsp&nbspShop Style
+    .textin-sub.text-black
+      SHOPPING CART
 
 - if @total_price > 0 
-  #{link_to "CLEAR CART", reset_path} 
-  %br
-  %br
-  #{link_to "CHECK OUT", card_path} 
+  .cart-list
+    .cart-header-wrapper.text-dark-grey
+      .cart-header-i Product
+      .cart-header-p Price
+      .cart-header-q Quantity
+    .cart-break-line
+    .cart-items-wrapper
+      - @items.each do |x|
+        .cart-item.text-dark-grey
+          .cart-item-img
+            = link_to image_tag(x.image.url(:thumb)), product_path(x)            
+          .cart-item-name
+            = x.name
+          .cart-item-price
+            $#{(x.price * x.discount).round(2)}
+          .cart-item-quantity
+            - @quantity = session[:cart][x.id.to_s]
+            #{@quantity}                   
+
+    .cart-break-line       
+
+    .cart-btn-nav    
+      = link_to reset_path, :class => "cart-btn" do  
+        CLEAR CART
+      .cart-total.text-dark-grey
+        TOTAL: $#{@total_price}
+
+    .cart-btn-nav  
+      .cart-checkout
+        = link_to card_path, :class => "cart-btn" do  
+          CHECK OUT
+
+- else
+  .cart-list.cart-empty-text.text-grey
+    You don't have anything in the cart.
+  .break-line 

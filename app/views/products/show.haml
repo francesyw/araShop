@@ -10,7 +10,7 @@
       %br
       .product-thum-price
         - if @product.discount < 1
-          %span.text-cross $#{@product.price}
+          %span.text-cross $#{@product.price.round(2)}
           &nbsp&nbsp&nbsp
           %span.show-sale-price.text-green-blue $#{(@product.price * @product.discount).round(2)}
         - else
@@ -22,10 +22,8 @@
       
       .show-info-bottom-wrapper
         .cart-btn-wrapper 
-          = link_to addtocart_path(@product), :class => "cart-btn" do  
+          = link_to addtocart_path(@product), :class => "cart-btn left" do  
             ADD TO CART 
-          / .cart-btn
-          /   #{link_to "ADD TO CART", addtocart_path(@product)} 
         .break-line
         .info-bottom-wrapper
           %span.text-dark-grey     

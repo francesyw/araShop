@@ -6,6 +6,34 @@
     padding: 0;    
 }
 
+input[type="text"] {
+    display: block;
+    width: 95.5%;
+    font-family: 'Karla', sans-serif;  
+    font-size: 9pt;
+    background-color: #F0F0F0;
+    border: solid 1px #dcdcdc;
+    padding: 2%;
+    margin: 3% 0;
+}
+
+input::-webkit-input-placeholder {
+    color:    #666;
+    font-size: 8pt;
+}
+input:-moz-placeholder {
+    color:    #666;
+    font-size: 8pt;
+}
+input::-moz-placeholder {
+    color:    #666;
+    font-size: 8pt;
+}
+input:-ms-input-placeholder {
+    color:    #666;
+    font-size: 8pt;
+}
+
 #frame {
     max-width: 1280px;
     height: 100%;

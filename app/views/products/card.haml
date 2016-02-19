@@ -1,34 +1,109 @@
-%h3 CART
+.index-cover.cart-cover
+  .cover-text
+    .cover-text-link.text-grey
+      Home&nbsp&nbsp&nbsp&nbsp&nbsp/&nbsp&nbsp&nbsp&nbsp&nbspShop Style
+    .textin-sub.text-black
+      CHECK OUT
 
-%h1 Check Out
-%p
-  %b
-    TOTAL PRICE: $#{@total_price}
+.cart-list
+  .checkout-payment
+    = form_tag "", id: "payment-form"
+    .payment-nav
+      .payment-header.checkout-title BILLING ADDRESS
+      .checkout-body-nav.payment-text.text-dark-grey
+        Full Name
+        %br
+        = text_field_tag :fullname
 
-= form_tag "", id: "payment-form"
-%span.payment-errors
-%div
-  = label_tag :card_number
-  = text_field_tag :number,"4242424242424242", "data-stripe" => "number"
-%div
-  = label_tag :cvc
-  = text_field_tag :number,"123", "data-stripe" => "cvc"
-expiration month and year
-%div
-  = label_tag :month
-  = text_field_tag :number,"10", "data-stripe" => "exp-month"
-%div
-  = label_tag :year
-  = text_field_tag :number,"2020", "data-stripe" => "exp-year"
-%button{:type => "submit"} Submit Payment
+        Address
+        %br
+        = text_field_tag :street, '', placeholder: 'Street Address'
+        = text_field_tag :apt, '', placeholder: 'Apartment, suite, unit etc. (optional)'
+
+        Town / City
+        %br
+        = text_field_tag :city, '', placeholder: 'Town / City'
+
+        State
+        %br
+        = text_field_tag :state, '', placeholder: 'NY'
+
+        Postcode
+        %br
+        = text_field_tag :postcode, '', size: 5, placeholder: 'Postcode / Zip'
+
+        Email Address
+        %br
+        = text_field_tag :email, ''
+
+    .payment-nav
+      .payment-header.checkout-title CARD INFO
+      .checkout-body-nav.payment-text.text-dark-grey
+        %span.payment-errors
+        Card Number
+        %br
+        = text_field_tag :number,"4242424242424242", "data-stripe" => "number"
+
+        CVC
+        %br        
+        = text_field_tag :cvc,"123", "data-stripe" => "cvc"
+        
+        Expiration Month and Year
+        %br
+        = text_field_tag :date,"10", "data-stripe" => "exp-month", placeholder: 'Month'      
+        = text_field_tag :date,"2020", "data-stripe" => "exp-year", placeholder: 'Year'
+
+  .checkout-order 
+    .order-header.checkout-title YOUR ORDER
+
+    .checkout-body-nav
+      .cart-header-wrapper.text-dark-grey
+        .order-header-i PRODUCT
+        .order-header-p PRICE
+        .order-header-q QUANTITY
+      .break-line
+      .cart-items-wrapper
+        - @items.each do |x|
+          .cart-item.text-dark-grey        
+            .cart-item-name
+              = x.name
+            .cart-item-price
+              $#{(x.price * x.discount).round(2)}
+            .cart-item-quantity
+              - @quantity = session[:cart][x.id.to_s]
+              #{@quantity}                   
+      %br
+      .cart-break-line    
+      .cart-btn-nav    
+        .cart-total.text-dark-grey
+          TOTAL: $#{@total_price}   
+
+      .order-warn-text.text-grey
+        Clicking 'Place Order' will instantly charge your card. You will receive an email telling you everything went well. Thank you for shopping with us.
+
+      .order-po-btn-nav  
+        .cart-btn.po-btn 
+          PLACE ORDER
 
 :javascript
   jQuery(function($) {
+
+
+
+    $('.cart-btn').click(function() {
+      if ($('#email').val() == '' ) {
+        $('.flash-msg').html('empty email');
+      } else {
+        $('#payment-form').submit();
+      }
+        
+    });
+
     $('#payment-form').submit(function(event) {
       var $form = $(this);
 
       // Disable the submit button to prevent repeated clicks
-      $form.find('button').prop('disabled', true);
+      $form.find('.cart-btn').prop('disabled', true);
 
       Stripe.card.createToken($form, stripeResponseHandler);
 

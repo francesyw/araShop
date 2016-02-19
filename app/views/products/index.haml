@@ -12,7 +12,7 @@
   %ul.products-type.menu
     = link_to products_path, :class => "black-link" do
       %li.btn ALL PRODUCTS
-    = link_to products_path, :class => "black-link" do
+    = link_to products_path(type: "Tops"), :class => "black-link" do
       %li.btn TOPS
     = link_to products_path, :class => "black-link" do
       %li.btn JEANS
@@ -27,6 +27,6 @@
         = link_to image_tag(x.image.url(:medium), :class => "thum-img index-thum-img"), product_path(x)
         .text-wrapper
           = link_to x.name, product_path(x), :class => "product-thum-name black-link"
-          .product-thum-price $#{x.price}
+          .product-thum-price $#{(x.price * x.discount).round(2)}
           - if current_user
             #{link_to "edit", edit_product_path(x)} 

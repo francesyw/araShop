@@ -20,9 +20,17 @@ class ProductsController < ApplicationController
         @product = Product.find(params[:id])
     end
 
-    def index
-        # reset_session
-        @products = Product.all
+    def index   
+        # binding.pry
+        if params[:type] == nil
+            @products = Product.all    
+        else
+            @products = Product.where(type: params[:type])
+        end     
+        
+        # Product.where(type: 'Tops')
+        # binding.pry
+        #Ar?ticle.where(author: author)
     end
 
     def edit
@@ -57,8 +65,7 @@ class ProductsController < ApplicationController
         redirect_to product_path(@product)
     end
 
-    def cart
-        # binding.pry        
+    def cart       
         if session[:cart] == nil
             session[:cart] = {}
         end
@@ -66,17 +73,19 @@ class ProductsController < ApplicationController
         @quantity = 0
         @subtotal = 0
         @total_price = total_price
-        # binding.pry
     end
 
     def card
-        # binding.pry
-        # @product = Product.find(session[:cart])
+        if session[:cart] == nil
+            session[:cart] = {}
+        end
+        @items = Product.find(session[:cart].keys)
+        @quantity = 0
+        @subtotal = 0
         @total_price = total_price
     end
 
     def purchase        
-        # @product = Product.find(params[:id]) 
         @total_price = total_price 
         token = params[:stripeToken]
 
@@ -93,6 +102,7 @@ class ProductsController < ApplicationController
           redirect_to root_url
         end
         flash[:success] = "Purchased"
+        session[:cart] = {}
         redirect_to root_url
     end
 

@@ -358,12 +358,13 @@ a.black-link:hover {
 .products-index {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    width: 101%;
 }
 
 .index-thum {
     text-align: center;
     width: 24%;
+    margin-right: 1%;
 }
 
 .img-wrapper {

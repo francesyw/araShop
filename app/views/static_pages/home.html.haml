@@ -25,26 +25,12 @@
     .title
       NEW ARRIVALS
   %ul.even-wrapper.home-products-thum
-    %li.product-thum
-      = image_tag("home/dude1.png", :class => "thum-img")
-      .text-wrapper
-        .product-thum-name Printed Jacquard Dress
-        .product-thum-price $340.00
-    %li.product-thum
-      = image_tag("home/dude2.png", :class => "thum-img")
-      .text-wrapper
-        .product-thum-name Printed Jacquard Dress
-        .product-thum-price $340.00
-    %li.product-thum
-      = image_tag("home/dude3.png", :class => "thum-img")
-      .text-wrapper
-        .product-thum-name Printed Jacquard Dress
-        .product-thum-price $340.00
-    %li.product-thum
-      = image_tag("home/dude4.png", :class => "thum-img")
-      .text-wrapper
-        .product-thum-name Printed Jacquard Dress
-        .product-thum-price $340.00
+    - @products.each do |x|
+      %li.product-thum
+        = link_to image_tag(x.image.url(:medium), :class => "thum-img"), product_path(x)
+        .text-wrapper
+          = link_to x.name, product_path(x), :class => "product-thum-name black-link"
+          .product-thum-price $#{(x.price * x.discount).round(2)}
 
 %ul.even-wrapper.home-corp
   %li.corp-logo

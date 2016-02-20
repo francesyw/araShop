@@ -54,16 +54,29 @@
 .nav
   .show-main-info
     %ul.info-menu-wrapper.text-grey
-      %li.info-menu DESCRIPTION
-      %li.info-menu ADDITIONAL INFO
-      %li.info-menu REVIEW
+      %li.info-menu.current
+        %a{:href => "#tab-1"} DESCRIPTION
+      %li.info-menu
+        %a{:href => "#tab-2"} ADDITIONAL INFO
+      %li.info-menu
+        %a{:href => "#tab-3"} REVIEW
     .show-info-text-wrapper.text-grey
-      .show-text-block
-        .show-info-text       
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam felis neque, imperdiet consectetur nulla a, lacinia tempus arcu. Integer quis maximus dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas erat enim, vulputate id pulvinar molestie, blandit vitae quam. Donec nisi est, tempus eget dignissim vitae.
-      .show-text-block
-        .show-info-text
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam felis neque, imperdiet consectetur nulla a, lacinia tempus arcu. Integer quis maximus dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas erat enim, vulputate id pulvinar molestie, blandit vitae quam. Donec nisi est, tempus eget dignissim vitae.
+      #tab-1.tab-content
+        .show-text-block
+          .show-info-text       
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam felis neque, imperdiet consectetur nulla a, lacinia tempus arcu. Integer quis maximus dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas erat enim, vulputate id pulvinar molestie, blandit vitae quam. Donec nisi est, tempus eget dignissim vitae.
+        .show-text-block
+          .show-info-text
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam felis neque, imperdiet consectetur nulla a, lacinia tempus arcu. Integer quis maximus dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas erat enim, vulputate id pulvinar molestie, blandit vitae quam. Donec nisi est, tempus eget dignissim vitae.
+      #tab-2.tab-content
+        .show-text-block
+          .show-info-text       
+            Additional Information
+      #tab-3.tab-content
+        .show-text-block
+          .show-info-text       
+            Review Section
+
   .show-related-wrapper
     .text-wrapper
       .textin-link.text-grey
@@ -92,8 +105,6 @@
           .product-thum-name Printed Jacquard Dress
           .product-thum-price $340.00
 
-
-
 - if current_user
   %br
   Discount: #{@product.discount}
@@ -105,3 +116,15 @@
 - if current_user
   %br
   #{link_to "edit", edit_product_path(@product)} 
+
+:javascript
+  jQuery(function($) {
+    $(".info-menu-wrapper a").click(function(event) {
+      event.preventDefault();
+      $(this).parent().addClass("current");
+      $(this).parent().siblings().removeClass("current");
+      var tab = $(this).attr("href");
+      $(".tab-content").not(tab).css("display", "none");
+      $(tab).fadeIn();
+    });
+  });

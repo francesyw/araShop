@@ -279,6 +279,10 @@ ul.info-menu-wrapper {
     border-bottom: 1px solid #E9E9E9;
 }
 
+.info-menu-wrapper .current a {
+    color: black;    
+}
+
 li.info-menu {
     padding: 2.5% 6%;
     font-family: 'Roboto Slab', serif;
@@ -309,6 +313,14 @@ li.info-menu {
     margin: 4% auto;
     max-width: 70%;
     text-align: center;
+}
+
+.tab-content {
+    display: none;
+}
+
+#tab-1 {
+ display: block;   
 }
 
 /************ index ************/

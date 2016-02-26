@@ -18,6 +18,14 @@ class ProductsController < ApplicationController
 
     def show        
         @product = Product.find(params[:id])
+        @related = Product.where(type: @product.type)
+        @related_id = []
+        @related.each do |x|
+            @related_id.push(x.id)
+        end
+        @related_id.delete(@product.id)
+        @related_id = @related_id.shuffle.slice(0,4)
+
     end
 
     def index   
@@ -25,12 +33,9 @@ class ProductsController < ApplicationController
         if params[:type] == nil
             @products = Product.paginate(:page => params[:page], :per_page => 8)   
         else
-            @products = Product.where(type: params[:type])
-        end     
-        
-        # Product.where(type: 'Tops')
-        # binding.pry
-        #Ar?ticle.where(author: author)
+            @products = Product.where(type: params[:type]).paginate(:page => params[:page], :per_page => 8)
+        end             
+
     end
 
     def edit
@@ -53,14 +58,14 @@ class ProductsController < ApplicationController
         if session[:cart] == nil
             session[:cart] = {}
         end
-        # binding.pry
+
         if session[:cart][@product.id.to_s] == nil 
             session[:cart][@product.id.to_s] = 1
-            # binding.pry
+
         else
             session[:cart][@product.id.to_s] += 1
         end
-        # (session[:cart] ||= []) << @product.id
+
         flash[:success] = "Successfully added to your cart."
         redirect_to product_path(@product)
     end

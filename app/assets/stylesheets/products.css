@@ -57,9 +57,10 @@
 }
 
 .po-btn {
-    width: 26%;
+    background-color: white;
     cursor: pointer;
     margin: 8% auto;
+    padding: 13px 42px 13px 45px !important;
 }
 
 .payment-text {

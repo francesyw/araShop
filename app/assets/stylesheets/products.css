@@ -333,7 +333,7 @@ li.info-menu {
 }
 
 .index-cover-img {    
-    -moz-transform: scale(1) !important;
+    max-width: 100%;
 }
 
 .cover-text {

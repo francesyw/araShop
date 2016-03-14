@@ -1,10 +1,9 @@
-
-/ .products-index-cover
 .index-cover
-  = image_tag("products-index/products-index-cover.jpg", :class => "cover-img index-cover-img")
+  = image_tag("products-index/products-index-cover.jpg", :class => "index-cover-img")
   .cover-text
     .cover-text-link 
-      Home&nbsp&nbsp&nbsp&nbsp&nbsp/&nbsp&nbsp&nbsp&nbsp&nbspShop Style
+      Home&nbsp&nbsp&nbsp&nbsp&nbsp/&nbsp&nbsp&nbsp&nbsp&nbsp
+      = link_to "Shop Style", products_path
     .textin-sub
       SHOP STYLE
 

@@ -1,18 +1,71 @@
-.home-cover {
+#pBtn, #nBtn {
+    position: absolute;
+    background-color: white;
+    width: 34px;
+    z-index: 999;
+    top: 45%;
+    cursor: pointer;
+    opacity: 0.2;
+    height: 45px;
+    font-size: 25px;
+    line-height: 45px;
+    color: #9a9d9f;
+}
+
+#pBtn:hover, #nBtn:hover {
+    opacity: 0.6
+}
+
+#pBtn {
+    left: 0;
+    padding-left: 19px;
+}
+
+#nBtn {
+    right: 0;
+    padding-left: 23px;
+}
+
+.slider-wrapper {
     position: relative;
-    max-height: 630px;
+    width: 100%;
+    max-height: 600px;
     overflow: hidden;
 }
 
-.cover-img {
+.slider {
     position: relative;
+    width: 400%;
+    max-height: 600px;  
+}
+
+.slider img {
+    position: relative;
+    max-height: 600px;
+    float: left;
+}
+
+.slider-img-1 {
+    width: 25%;
+}
+
+.home-cover {
+    position: relative;
+    max-height: 600px;
+    width: 25%;
+    overflow: hidden;
+    float: left;
+}
+
+.cover-img {
+/*    position: relative;*/
     zoom: 2;
     -moz-transform-origin: 0 0;
     -moz-transform: scale(1.42);
-    max-width: 100%;
-    max-height: 100%;
+    width: 71%;
+ /* max-height: 100%;
     height: auto;
-    float: left;
+    float: left;*/
 }
 
 .cover-solid {
@@ -34,7 +87,7 @@
     top: 50%;
     transform: translateY(-50%);
     right: 0;
-    z-index: 999;
+    z-index: 998;
     color: white;
 }
 

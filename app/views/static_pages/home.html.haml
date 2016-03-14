@@ -1,22 +1,50 @@
-.home-cover
-  = image_tag("home/cover0.jpg", :class => "cover-img")
-  .home-solid
-    = image_tag("home/cover-solid.png", :class => "cover-solid")
-  .cover-textout
-    .cover-textin
-      #textin-season
-        WINTER - SPRING
-      %br
-      .textin-sub
-        2016 COLLECTION
-      %br
-      #textin-text
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur enim risus,
-        %br
-        condimentum sit amet justo id, ornare porta est. Nam sagittis lacinia ex et rutrum.
-      %br
-      .textin-link
-        View collection 
+.slider-wrapper
+  #pBtn <
+  #nBtn >
+  .slider
+    .home-cover
+      = image_tag("home/cover0.jpg", :class => "cover-img")
+      .home-solid
+        = image_tag("home/cover-solid.png", :class => "cover-solid")
+      .cover-textout
+        .cover-textin
+          #textin-season
+            WINTER - SPRING
+          %br
+          .textin-sub
+            2016 COLLECTION
+          %br
+          #textin-text
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur enim risus,
+            %br
+            condimentum sit amet justo id, ornare porta est. Nam sagittis lacinia ex et rutrum.
+          %br
+          .textin-link
+            View collection 
+    = image_tag("products-index/products-index-cover.jpg", :class => "slider-img-1")
+    .home-cover
+      = image_tag("home/cover0.jpg", :class => "cover-img")
+    .home-cover
+      = image_tag("home/cover0.jpg", :class => "cover-img")
+      .home-solid
+        = image_tag("home/cover-solid.png", :class => "cover-solid")
+      .cover-textout
+        .cover-textin
+          #textin-season
+            WINTER - SPRING
+          %br
+          .textin-sub
+            2016 COLLECTION
+          %br
+          #textin-text
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur enim risus,
+            %br
+            condimentum sit amet justo id, ornare porta est. Nam sagittis lacinia ex et rutrum.
+          %br
+          .textin-link
+            View collection 
+
+
 
 .home-products
   .text-wrapper
@@ -49,3 +77,28 @@
     = image_tag("home/a7.png", :class => "thum-img")
   %li.corp-logo
     = image_tag("home/a8.png", :class => "thum-img")
+
+:javascript
+  jQuery(function($) {
+    var threshVal = parseInt($(".slider").css("width"), 10) /4 * 3
+    var thresh = "-" + threshVal + "px"
+
+    $("#nBtn").click(function(){ 
+      console.log($(".slider").css("marginLeft"));     
+      if($(".slider").css("marginLeft") == thresh){      
+        $(".slider").css("marginLeft", "0%");
+        $(".slider").animate({marginLeft: "-=100%"}, 700);
+      }else{        
+        $(".slider").animate({marginLeft: "-=100%"}, 700);
+      }
+    });
+  
+    $("#pBtn").click(function(){      
+      if($(".slider").css("marginLeft") == "0px"){      
+        $(".slider").css("marginLeft", "-300%");
+        $(".slider").animate({marginLeft: "+=100%"}, 700);
+      }else{        
+        $(".slider").animate({marginLeft: "+=100%"}, 700);
+      }
+    });
+  });

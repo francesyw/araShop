@@ -108,7 +108,7 @@ class ProductsController < ApplicationController
         end
         flash[:success] = "Purchased"
         session[:cart] = {}
-        redirect_to root_url
+        redirect_to receipt_path
     end
 
     def reset

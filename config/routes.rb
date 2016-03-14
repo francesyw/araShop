@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/addtocart/:id' => 'products#addtocart', as: "addtocart"
   get '/cart' => 'products#cart', as: "cart"
   get '/reset' => 'products#reset', as: "reset"
+  get '/receipt' => 'products#receipt', as: "receipt"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

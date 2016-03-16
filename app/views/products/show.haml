@@ -44,10 +44,10 @@
           %span.text-green-blue
             Free shipping and Free reeturn
     .cover-ico-wrapper
-      .ico-wrapper
+      #fb-share.ico-wrapper 
         .hori-center
           %i.fa.fa-facebook
-      .ico-wrapper
+      #twttr-share.ico-wrapper 
         .hori-center
           %i.fa.fa-twitter
 
@@ -114,4 +114,18 @@
       $(".tab-content").not(tab).css("display", "none");
       $(tab).fadeIn();
     });
+
+    var title = document.title
+    var pageUrl = window.location.href
+    var twttrLink = 'https://twitter.com/share?url=' + pageUrl + '&'+ 'text=' + title
+    var fbLink = 'http://www.facebook.com/sharer/sharer.php?u=http://facebook.com' + '&' + 'title=' + title
+     
+    $("#twttr-share").click(function() {        
+        window.open(twttrLink, "Twitter Share", "width=800,height=400");
+    });
+
+    $("#fb-share").click(function() {        
+        window.open(fbLink, "Facebook Share", "width=800,height=400");
+    });
+    
   });

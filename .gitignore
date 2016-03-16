@@ -21,3 +21,5 @@ config/secrets.yml
 
 /spec/tmp
 public/system/products/images
+
+app/assets/images

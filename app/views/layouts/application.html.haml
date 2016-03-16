@@ -7,6 +7,7 @@
     = stylesheet_link_tag    'application', 'https://fonts.googleapis.com/css?family=Roboto+Slab:700', 'https://fonts.googleapis.com/css?family=Karla:700,400', 'https://fonts.googleapis.com/css?family=Vollkorn:400,400italic', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', media: 'all', 'data-turbolinks-track' => true
 
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = favicon_link_tag
     = csrf_meta_tags
     :javascript
       Stripe.setPublishableKey('pk_test_pmeh2VTO8DfPVCKgPCdgrHc3');
@@ -68,28 +69,28 @@
 
       #footer
         %ul.menu.left.hori-center#footer-menu
-          = link_to root_url, :class => "footer-link" do
+          = link_to "#", :class => "footer-link" do
             %li.btn ABOUT US
-          = link_to root_url, :class => "footer-link" do 
+          = link_to "#", :class => "footer-link" do 
             %li.btn VISIT SHOP
-          = link_to root_url, :class => "footer-link" do
+          = link_to "#", :class => "footer-link" do
             %li.btn FAQS
-          = link_to root_url, :class => "footer-link" do
+          = link_to "#", :class => "footer-link" do
             %li.btn ORDER TRACKING
-          = link_to root_url, :class => "footer-link" do
+          = link_to "#", :class => "footer-link" do
             %li.btn @BY ALITSTUDIO
 
         %ul.right.hori-center#footer-ico          
-          = link_to root_url, :class => "footer-link" do
+          = link_to "#", :class => "footer-link" do
             %li.btn
               %i.fa.fa-facebook
-          = link_to root_url, :class => "footer-link" do
+          = link_to "#", :class => "footer-link" do
             %li.btn
               %i.fa.fa-twitter
-          = link_to root_url, :class => "footer-link" do
+          = link_to "#", :class => "footer-link" do
             %li.btn
               %i.fa.fa-instagram
-          = link_to root_url, :class => "footer-link" do
+          = link_to "#", :class => "footer-link" do
             %li.btn
               %i.fa.fa-linkedin
 

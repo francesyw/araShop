@@ -85,17 +85,18 @@
       .order-po-btn-nav  
         = submit_tag "PLACE ORDER", class: "cart-btn po-btn"
 
+.loading{:style=>"display:none;"}
+  = image_tag("loading.gif", :class => "loading-gif")
 
 :javascript
   jQuery(function($) {
-    $('#payment-form').submit(function(event) {
-      console.log('submitted');
+    $('#payment-form').submit(function(event) {      
       var $form = $(this);
 
       // Disable the submit button to prevent repeated clicks
       $form.find('.cart-btn').prop('disabled', true);
-
-      Stripe.card.createToken($form, stripeResponseHandler);
+      $('.loading').show();
+      Stripe.card.createToken($form, stripeResponseHandler);      
 
       // Prevent the form from submitting with the default action
       return false;

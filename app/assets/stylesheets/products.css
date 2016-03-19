@@ -72,6 +72,22 @@
     width: 40%;
 }
 
+.loading {
+    position: absolute;
+    top: 38%;
+    width: 62%;
+    height: 71%;
+    left: 19%;
+    opacity: 0.8;
+    background-color: white;
+    z-index: 990;
+}
+
+.loading-gif {
+    position: relative;
+    left: 24%;
+    top: 30%;
+}
 
 /************ cart ************/
 .cart-cover {

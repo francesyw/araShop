@@ -5,3 +5,32 @@
       = link_to "Shop Style", products_path
     .textin-sub.text-black
       RECEIPT
+
+.cart-list
+  .checkout-title.checkout-body-nav
+    Thanks for Purchasing!
+  .cart-header-wrapper.text-dark-grey
+    .cart-header-i Product
+    .cart-header-p Price
+    .cart-header-q Quantity
+  .cart-break-line
+  .cart-items-wrapper
+    - @items.each do |x|
+      .cart-item.text-dark-grey
+        .cart-item-img
+          = link_to image_tag(x.image.url(:thumb)), product_path(x)            
+        .cart-item-name
+          = x.name
+        .cart-item-price
+          $#{(x.price * x.discount).round(2)}
+        .cart-item-quantity
+          - @quantity = session[:cart][x.id.to_s]
+          #{@quantity}                   
+
+  .cart-break-line       
+
+  .cart-btn-nav    
+    .cart-total.text-dark-grey
+      TOTAL: $#{@total_price}
+
+- session[:cart] = {}

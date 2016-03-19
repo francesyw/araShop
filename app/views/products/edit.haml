@@ -12,7 +12,7 @@ Product #{@product.id}: #{@product.name}
   = f.text_field :price,  value: (number_with_precision(f.object.price, precision: 2) || 0)
   %br
   = f.label :discount, 'Discount'
-  = f.text_field :discount,  value: (1 || number_with_precision(f.object.price, precision: 2))
+  = f.text_field :discount,  value: (@product.discount || number_with_precision(f.object.price, precision: 2))
   %br
   = f.label :quantity, 'Quantity'
   = f.number_field :quantity

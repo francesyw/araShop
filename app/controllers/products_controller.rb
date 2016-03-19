@@ -76,17 +76,12 @@ class ProductsController < ApplicationController
         end
         @items = Product.find(session[:cart].keys)
         @quantity = 0
-        @subtotal = 0
         @total_price = total_price
     end
 
     def card
-        if session[:cart] == nil
-            session[:cart] = {}
-        end
         @items = Product.find(session[:cart].keys)
         @quantity = 0
-        @subtotal = 0
         @total_price = total_price
     end
 
@@ -106,9 +101,14 @@ class ProductsController < ApplicationController
           flash[:danger] = "Checkout Error"
           redirect_to root_url
         end
-        flash[:success] = "Purchased"
-        session[:cart] = {}
+        flash[:success] = "Purchased"        
         redirect_to receipt_path
+    end
+
+    def receipt
+        @items = Product.find(session[:cart].keys)
+        @quantity = 0
+        @total_price = total_price        
     end
 
     def reset

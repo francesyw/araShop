@@ -3,9 +3,9 @@
   #nBtn >
   .slider
     .home-cover
-      = image_tag("home/cover0.jpg", :class => "cover-img")
+      = image_tag("https://s3.amazonaws.com/arashop-assets/assets/images/home/cover0.jpg", :class => "cover-img")
       .home-solid
-        = image_tag("home/cover-solid.png", :class => "cover-solid")
+        = image_tag("https://s3.amazonaws.com/arashop-assets/assets/images/home/cover-solid.png", :class => "cover-solid")
       .cover-textout
         .cover-textin
           #textin-season
@@ -21,13 +21,13 @@
           %br
           .textin-link
             View collection 
-    = image_tag("products-index/products-index-cover.jpg", :class => "slider-img-1")
+    = image_tag("https://s3.amazonaws.com/arashop-assets/assets/images/products-index/products-index-cover.jpg", :class => "slider-img-1")
     .home-cover
-      = image_tag("home/cover0.jpg", :class => "cover-img")
+      = image_tag("https://s3.amazonaws.com/arashop-assets/assets/images/home/cover0.jpg", :class => "cover-img")
     .home-cover
-      = image_tag("home/cover0.jpg", :class => "cover-img")
+      = image_tag("https://s3.amazonaws.com/arashop-assets/assets/images/home/cover0.jpg", :class => "cover-img")
       .home-solid
-        = image_tag("home/cover-solid.png", :class => "cover-solid")
+        = image_tag("https://s3.amazonaws.com/arashop-assets/assets/images/home/cover-solid.png", :class => "cover-solid")
       .cover-textout
         .cover-textin
           #textin-season
@@ -62,27 +62,27 @@
 
 %ul.even-wrapper.home-corp
   %li.corp-logo
-    = image_tag("home/a1.png", :class => "thum-img")
+    = image_tag("https://s3.amazonaws.com/arashop-assets/assets/images/home/a1.png", :class => "thum-img")
   %li.corp-logo
-    = image_tag("home/a2.png", :class => "thum-img")
+    = image_tag("https://s3.amazonaws.com/arashop-assets/assets/images/home/a2.png", :class => "thum-img")
   %li.corp-logo
-    = image_tag("home/a3.png", :class => "thum-img")
+    = image_tag("https://s3.amazonaws.com/arashop-assets/assets/images/home/a3.png", :class => "thum-img")
   %li.corp-logo
-    = image_tag("home/a4.png", :class => "thum-img")
+    = image_tag("https://s3.amazonaws.com/arashop-assets/assets/images/home/a4.png", :class => "thum-img")
   %li.corp-logo
-    = image_tag("home/a5.png", :class => "thum-img")
+    = image_tag("https://s3.amazonaws.com/arashop-assets/assets/images/home/a5.png", :class => "thum-img")
   %li.corp-logo
-    = image_tag("home/a6.png", :class => "thum-img")
+    = image_tag("https://s3.amazonaws.com/arashop-assets/assets/images/home/a6.png", :class => "thum-img")
   %li.corp-logo
-    = image_tag("home/a7.png", :class => "thum-img")
+    = image_tag("https://s3.amazonaws.com/arashop-assets/assets/images/home/a7.png", :class => "thum-img")
   %li.corp-logo
-    = image_tag("home/a8.png", :class => "thum-img")
+    = image_tag("https://s3.amazonaws.com/arashop-assets/assets/images/home/a8.png", :class => "thum-img")
 
 :javascript
   jQuery(function($) {
     var threshVal = parseInt($(".slider").css("width"), 10) /4 * 3
     var thresh = "-" + threshVal + "px"
-
+    // TODO: (BUG) calculate width immediately after click instead of waiting for the animation to finish; make threshVal responsive with width
     $("#nBtn").click(function(){ 
       console.log($(".slider").css("marginLeft"));     
       if($(".slider").css("marginLeft") == thresh){      

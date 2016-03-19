@@ -39,6 +39,7 @@ gem "paperclip", "~> 4.3"
 gem 'pry'
 gem 'stripe'
 gem 'will_paginate', '~> 3.0.6'
+gem 'aws-sdk-v1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

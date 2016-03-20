@@ -7,6 +7,8 @@
       CHECK OUT
 
 .cart-list
+  .loading{:style=>"display:none;"}
+    = image_tag("loading.gif", :class => "loading-gif")
   = form_tag "", id: "payment-form"
   .checkout-payment
     .payment-nav
@@ -84,9 +86,6 @@
 
       .order-po-btn-nav  
         = submit_tag "PLACE ORDER", class: "cart-btn po-btn"
-
-.loading{:style=>"display:none;"}
-  = image_tag("loading.gif", :class => "loading-gif")
 
 :javascript
   jQuery(function($) {

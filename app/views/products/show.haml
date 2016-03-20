@@ -118,7 +118,7 @@
     var title = document.title
     var pageUrl = window.location.href
     var twttrLink = 'https://twitter.com/share?url=' + pageUrl + '&'+ 'text=' + title
-    var fbLink = 'http://www.facebook.com/sharer/sharer.php?u=http://facebook.com' + '&' + 'title=' + title
+    var fbLink = 'http://www.facebook.com/sharer/sharer.php?u=' + pageUrl + '&' + 'title=' + title
      
     $("#twttr-share").click(function() {        
         window.open(twttrLink, "Twitter Share", "width=800,height=400");
